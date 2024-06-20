@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Mini Project
+        </title>
+        <link rel="icon" href="mini.jpeg">
+    </head>
+    <body>
+        <h1>Guess the number</h1>
+        <input id ="guess">
+        <button onclick="check()">Check</button>
+        
+        <div id="output">
+            <p>Result</p>
+        </div>
+        <p id="score">Score:10</p>
+    
+        <script>
+            var guessnumber = document.getElementById("guess")
+            
+            var randomnumber = Math.floor(Math.random()*10)+1
+            var score = document.getElementById("score")
+            const div = document.getElementById("output")
+            var totalscore = 10
+            function check()
+            {
+                var enterednumber = guessnumber.value
+                if(enterednumber==randomnumber)
+                {
+                    console.log("Right")
+                    totalscore+=1
+                    score.textContent="Score: "+totalscore
+                    div.innerHTML="";
+                    div.appendChild(document.createTextNode("You won"));
+
+                }
+                else{
+                    console.log("Wrong")
+                
+                    totalscore-=1
+                    score.textContent="Score: "+totalscore
+                    div.innerHTML="";
+                    div.appendChild(document.createTextNode("You Lost! Try again"));
+                    alert(randomnumber)
+
+                }
+            }
+        </script>
+    </body>
+</html>
